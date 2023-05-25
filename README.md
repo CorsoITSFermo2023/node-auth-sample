@@ -1,14 +1,15 @@
 # meteo-FAMM
 OGGETTI:
 1 - Previsione
--temp
--nome previsione
--umidita
--%pioggia
--uv
--data
--fascia oraria
--provincia
+
+temp
+nome previsione
+umidita
+%pioggia
+uv
+data
+fascia oraria
+provincia
 
 2 - Allerte
 
