@@ -15,6 +15,7 @@ OGGETTI:
 3 - Lettura meteo attuale
 
 Metodi 1- Previsione:
+
 POST    - Inserimento dati
 PUT     - Modifica revisione
 GET     - Previsione(giornaliera)
