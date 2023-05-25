@@ -21,9 +21,8 @@ const app = express();
 Metodi 1- Previsione:
 
 
-PUT     - Modifica revisione
+
 GET     - Previsione(giornaliera)
-DELETE  - Previsione
 GET     - Previsione nei prossimi x giorni
 
 
@@ -32,6 +31,8 @@ app.post('/', async (req, res) => {
   });
 */
 
+
+//home
 app.get('/', function (req, res) {
     const risposta = {
       message: 'Benvenuti tutti, meteo'
@@ -41,16 +42,20 @@ app.get('/', function (req, res) {
 
 app.use(bodyParser.json())
 
+
+//inserisci previsione
 app.post('/previsione', async (req, res) => {
     const newpre= await insertPrevisione(req.body)
     res.json(newpre)
 })
 
+//get previsione
 app.get('/previsione/:idPrevisione', async (req, res) => {
     const prev = await getPrevisione({ id: req.params.idPrevisione });
     res.json(prev)
 });
 
+//elimina previsione
 app.delete('/previsione/:idPrevisione', async (req, res) => {
     const prev = await deletePrevisione({ id: req.params.idPrevisione });
     const risposta={
@@ -59,21 +64,16 @@ app.delete('/previsione/:idPrevisione', async (req, res) => {
     res.json(risposta)
 });
 
-app.put('previsione/:idPrevisione', async (req, res) => {
+//modifica revisione
+app.put('/previsione/:idPrevisione', async (req, res) => {
     const aggiornati = await updatePrevisione(req.body, { id: req.params.idPrevisione });
+    const risposta={
+        message: "Previsione aggiornata"
+    }
+    res.json(risposta)
 });
 
 
-/*
-app.put('previsione/:idPrevisione', async (req, res) => {
-    const aggiornati = await updatePrevisione({  }, { id: req.params.idPrevisione });
-});
-
-app.get('/previsione/:idPrevisione', async (req, res) => {
-    const prev = await getPrevisione({ id: req.params.idPrevisione });
-    res.json(prev)
-});
-*/
 
 
 
