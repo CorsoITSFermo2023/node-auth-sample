@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.put('/allerta/:', async (req,res) =>{
-    const allerta= await updateAllerta(req.body.descrizione,req.body.inizio,req.body.fine)
+    const allerta= await updateAllerta(req.body.descrizione,req.body.data_inizio,req.body.data_fine)
     res.json(allerta)
 })
 
