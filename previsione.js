@@ -16,6 +16,12 @@ router.get('/:idPrevisione', async (req, res) => {
     res.json(prev)
 });
 
+//lista per provincia
+router.get('/list/:prov', async (req, res) => {
+    const prev = await listPrevisioni({provincia:req.params.prov});
+    res.json(prev)
+});
+
 //elimina previsione
 router.delete('/:idPrevisione', async (req, res) => {
     const prev = await deletePrevisione({ id: req.params.idPrevisione });
@@ -34,14 +40,14 @@ router.put('/:idPrevisione', async (req, res) => {
     res.json(risposta)
 });
 
-
-router.get('/giornaliera/:prevData', async (req, res) => {
-    const lista =await listPrevisioni({data: req.params.prevData})
+//previsione giornaliera
+router.get('/giornaliera/:prov/:prevData', async (req, res) => {
+    const lista =await listPrevisioni({data: req.params.prevData,provincia:req.params.prov})
     res.json(lista)
 });
 
-
-router.get('/futura/:prevData', async (req, res) => {
+//previsioni future
+router.get('/futura/:prov/:prevData', async (req, res) => {
     
     const listafutura=[]
     const datasplit= req.params.prevData.split("-")
@@ -51,7 +57,7 @@ router.get('/futura/:prevData', async (req, res) => {
         const giorno= parseInt(nuovadata[2])+i
         nuovadata[2]=giorno
         nuovadata=nuovadata.join('-')
-        const lista =await listPrevisioni({data: nuovadata})        
+        const lista =await listPrevisioni({data: nuovadata,provincia:req.params.prov})        
         listafutura.push(lista)
     }
     
