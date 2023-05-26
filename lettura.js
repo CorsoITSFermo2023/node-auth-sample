@@ -7,17 +7,17 @@ router.get("/", async (req,res) => {
     const lista = await listLetture({1:1});
     res.json(lista);
 })
-router.put('/', async (req,res) =>{
-    const lettura= await updateLettura()
+router.put('/:idLettura', async (req,res) =>{
+    const lettura= await updateLettura(req.body, { id: req.params.idLettura })
     res.json(lettura)
 })
-router.post('/:idLettura', async (req,res) =>{
-    const lettura= await insertLettura(req.body.previsione,req.body.dataora,req.body.provincia, { id: req.params.idLettura })
+router.post('/', async (req,res) =>{
+    const lettura= await insertLettura(req.body)
     res.json(lettura)
 })
-router.delete('/', async (req,res) =>{
-const lettura = await deleteLettura({ id: previsione.id });
-  res.json(lettura)
+router.delete('/:idLettura', async (req,res) =>{
+const lettura = await deleteLettura({ id: req.params.idLettura });
+  res.json("tippoooo lettura eliminata cazzo ne so")
 })
 
 module.exports = router

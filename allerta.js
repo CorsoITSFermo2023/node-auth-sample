@@ -4,7 +4,7 @@ const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = requi
 const router = Router();
 
 router.post('/', async (req,res) =>{
-    const allerta= await insertAllerta(req.body.descrizione,req.body.data_inizio,req.body.data_fine)
+    const allerta= await insertAllerta(req.body)
     res.json(allerta)
 })
 
@@ -23,8 +23,8 @@ router.put('/:idAllerta', async (req,res) =>{
     res.json("avvenuto aggiornamento")
 })
 
-router.put('/:idAllerta', async (req,res) =>{
-    const nuovo = deleteAllerta(req.body,{ id: req.params.idAllerta})
+router.delete('/:idAllerta', async (req,res) =>{
+    const nuovo = await deleteAllerta({ id: req.params.idAllerta})
     res.json("avvenuta rimozione")
 })
 
