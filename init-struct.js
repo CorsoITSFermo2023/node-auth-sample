@@ -26,7 +26,4 @@ async function initStruct() {
 }
 
 
-module.exports = {
-  initStruct
-}
-
+initStruct()

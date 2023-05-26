@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require("body-parser");
 const { listenerCount } = require("process");
-const { initStruct } = require("./init-struct");
+
 const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./previsione.dao");
 const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./allerta.dao")
 const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require("./lettura.dao")
@@ -96,6 +96,5 @@ app.get('/list', async (req, res) => {
 
 
 
-initStruct().then(
-    () =>listenerCount.port
-)
+
+app.listen(port)
