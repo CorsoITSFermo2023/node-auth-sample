@@ -28,7 +28,7 @@ Metodi 2- Allerta:
 POST    - Inserimento dati
 GET     - Allerta(dati)
 PUT     - Modifica allerta(dati)
-DLETE   - Cancella allerta
+DELETE  - Cancella allerta
 
 Metodi 3- Lettura meteo attuale:
 POST    - Inserimento dati
