@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-
+const { initStruct } = require('./init-struct');
 const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./previsione.dao");
 const port = 3000;
 const app = express();
@@ -73,10 +73,23 @@ app.put('/previsione/:idPrevisione', async (req, res) => {
     res.json(risposta)
 });
 
+/*
+app.get('/list', async (req, res) => {
+    console.log(await listPrevisioni())
+    const risposta={
+        message: "Previsione eliminata"
+    }
+    res.json(risposta)
+  });
+
+*/
 
 
 
 
-app.listen(port)
+initStruct().then(
+  () => app.listen(port)
+);
+
   
   
