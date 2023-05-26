@@ -79,16 +79,28 @@ app.put('/previsione/:idPrevisione', async (req, res) => {
 });
 
 
-app.get('/list', async (req, res) => {
-    console.log(await listPrevisioni())
-    const risposta={
-        message: "Previsione eliminata"
+app.get('/previsione/giornaliera/:prevData', async (req, res) => {
+    const lista =await listPrevisioni({data: req.params.prevData})
+    res.json(lista)
+});
+
+
+app.get('/previsione/futura/:prevData', async (req, res) => {
+    
+    const listafutura=[]
+    const datasplit= req.params.prevData.split("-")
+
+    for(let i=1;i<8;i++){
+        let nuovadata= [].concat(datasplit)
+        const giorno= parseInt(nuovadata[2])+i
+        nuovadata[2]=giorno
+        nuovadata=nuovadata.join('-')
+        const lista =await listPrevisioni({data: nuovadata})        
+        listafutura.push(lista)
     }
-    res.json(risposta)
-  });
-
-
-
+    
+    res.json(listafutura)
+});
 
 
 
