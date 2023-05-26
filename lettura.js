@@ -49,7 +49,7 @@ router.delete('/:id', async (req,res) =>{
     res.json(lettura)
 })
 
-//kkn - lettura per provincia; format dataora= oo-aaaa-mm-gg 
+//kkn - situazione?; format dataora= oo-aaaa-mm-gg 
 router.get("/:prov/:dataor", async (req,res) => {
     const bruh = await getLettura({dataora:req.params.dataor,provincia:req.params.prov})
     if(bruh){
