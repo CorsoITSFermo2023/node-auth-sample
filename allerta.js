@@ -8,22 +8,22 @@ router.post('/allerta', async (req,res) =>{
     res.json(allerta)
 })
 
-router.get('allerta', async (req,res) =>{
+router.get('/allerta', async (req,res) =>{
     const lista = await listAllerte();
     res.json(lista)
 })
 
-router.get('allerta/:idAllerta', async (req,res) =>{
+router.get('/allerta/:idAllerta', async (req,res) =>{
     const lista = await getAllerta(req.params.idAllerta);
     res.json(lista)
 })
 
-router.put('allerta/idAllerta', async (req,res) =>{
+router.put('/allerta/idAllerta', async (req,res) =>{
     const nuovo = updateAllerta(req.body,{ id: req.params.idAllerta})
     res.json("avvenuto aggiornamento")
 })
 
-router.put('allerta/idAllerta', async (req,res) =>{
+router.put('/allerta/idAllerta', async (req,res) =>{
     const nuovo = deleteAllerta(req.body,{ id: req.params.idAllerta})
     res.json("avvenuta rimozione")
 })
