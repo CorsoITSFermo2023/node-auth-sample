@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./allerta.dao")
 
-const router = Router();
+const router = Router()
 
 router.post('/', async (req,res) =>{
     const allerta= await insertAllerta(req.body)
