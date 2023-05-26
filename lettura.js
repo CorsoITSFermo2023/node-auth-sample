@@ -8,7 +8,7 @@ router.get("/", async (req,res) => {
     res.json(lista);
 })
 router.put('/', async (req,res) =>{
-    const lettura= await updateLettura(req.body.previsione,req.body.dataora,req.body.provincia)
+    const lettura= await updateLettura()
     res.json(lettura)
 })
 router.post('/:idLettura', async (req,res) =>{
