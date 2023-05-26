@@ -1,4 +1,4 @@
-const { smartSelect, smartUpdate, smartDelete, smartInsert } = require("../db-smart");
+const { smartSelect, smartUpdate, smartDelete, smartInsert } = require("./db-smart");
 
 
 const table = 'previsione';
