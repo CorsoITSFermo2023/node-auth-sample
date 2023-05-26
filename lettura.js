@@ -1,8 +1,10 @@
 const { Router } = require("express");
+const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require("./lettura.dao")
 
-const router = Router
+const router = Router()
 
-router.length("/list",(req,res) =>{
-
+router.get("/",(req,res) => {
+    
 })
-module.exports=router
+
+module.exports = router
