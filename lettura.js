@@ -12,7 +12,7 @@ router.put('/', async (req,res) =>{
     res.json(lettura)
 })
 router.post('/', async (req,res) =>{
-    const lettura= await insertLettura(req.body.previsione,req.body.dataora,req.body.provincia)
+    const lettura= await insertLettura(req.body)
     res.json(lettura)
 })
 router.delete('/', async (req,res) =>{

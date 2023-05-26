@@ -38,7 +38,7 @@ app.post('/', async (req, res) => {
 
 
 //home
-app.get('/', function (req, res) {
+app.get('/previsione', function (req, res) {
     const risposta = {
       message: 'Benvenuti tutti, meteo'
     };
