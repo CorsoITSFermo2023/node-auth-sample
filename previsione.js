@@ -27,20 +27,31 @@ router.get('/list/:prov', async (req, res) => {
 
 //elimina previsione
 router.delete('/:idPrevisione', async (req, res) => {
-    const prev = await deletePrevisione({ id: req.params.idPrevisione });
-    const risposta={
-        message: "Previsione eliminata"
+    const test = await getPrevisione({ id: req.params.idPrevisione });
+
+    if(!test){
+        const risposta={message:"Previsione non trovata"}
+        res.json(risposta)
+    }else{
+        const prev = await deletePrevisione({ id: req.params.idPrevisione });
+        const risposta={message: "Previsione eliminata"}
+        res.json(risposta)
     }
-    res.json(risposta)
 });
 
 //modifica revisione
 router.put('/:idPrevisione', async (req, res) => {
-    const aggiornati = await updatePrevisione(req.body, { id: req.params.idPrevisione });
-    const risposta={
-        message: "Previsione aggiornata"
+    const test = await getPrevisione({ id: req.params.idPrevisione });
+    
+    if(!test){
+        const risposta={message: "Previsione non trovata"}
+        res.json(risposta)
     }
-    res.json(risposta)
+    else{
+        const aggiornati = await updatePrevisione(req.body, { id: req.params.idPrevisione });
+        const risposta={message: "Previsione aggiornata"}
+        res.json(risposta)
+    }
 });
 
 //previsione giornaliera
