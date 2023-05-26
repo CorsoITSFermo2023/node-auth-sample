@@ -1,10 +1,10 @@
 const express = require('express')
 const bodyParser = require("body-parser");
 const { listenerCount } = require("process");
-const { initStruct } = require("../web-server-sample/init-struct");
-const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./dao/previsione.dao");
-const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./dao/allerta.dao")
-const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require(".dao/lettura.dao")
+const { initStruct } = require("./init-struct");
+const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./previsione.dao");
+const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./allerta.dao")
+const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require("./lettura.dao")
 const port = 3000;
 const app = express();
 
@@ -82,7 +82,7 @@ app.put('/previsione/:idPrevisione', async (req, res) => {
     res.json(risposta)
 });
 
-/*
+
 app.get('/list', async (req, res) => {
     console.log(await listPrevisioni())
     const risposta={
@@ -91,7 +91,7 @@ app.get('/list', async (req, res) => {
     res.json(risposta)
   });
 
-*/
+
 
 
 
