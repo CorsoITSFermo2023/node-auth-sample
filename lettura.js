@@ -4,7 +4,7 @@ const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = requi
 const router = Router()
 
 router.get("/", async (req,res) => {
-    const lista = listLetture();
+    const lista = await listLetture({1:1});
     res.json(lista);
 })
 router.put('/', async (req,res) =>{
