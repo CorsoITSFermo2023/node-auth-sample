@@ -16,7 +16,7 @@ app.use("/previsione",routerPrevisione)
 
 
 
-//home
+
 app.get('/', function (req, res) {
     const risposta = {
       message: 'Benvenuti tutti, meteo'
