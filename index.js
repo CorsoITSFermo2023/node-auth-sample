@@ -5,6 +5,7 @@ const { listenerCount } = require("process");
 const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./previsione.dao");
 const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./allerta.dao")
 const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require("./lettura.dao")
+const routerLettura = require ("./lettura")
 const port = 3000;
 const app = express();
 
@@ -15,6 +16,7 @@ app.put('/allerta/:', async (req,res) =>{
     res.json(allerta)
 })
 
+app.use("/lettura",routerLettura)
 /*
 
 {
