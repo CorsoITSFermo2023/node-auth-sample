@@ -3,19 +3,14 @@ const bodyParser = require("body-parser");
 const { listenerCount } = require("process");
 
 const { insertPrevisione, getPrevisione, updatePrevisione, listPrevisioni, deletePrevisione } = require("./previsione.dao");
-const {insertAllerta,listAllerte,getAllerta,updateAllerta,deleteAllerta} = require("./allerta.dao")
-const {insertLettura,listLetture,getLettura,updateLettura,deleteLettura} = require("./lettura.dao")
-
+const routerAllerta = require("./allerta.js")
+const routerLettura = require("./lettura.js")
 const port = 3000;
 const app = express();
 
 app.use(bodyParser.json());
-
-app.put('/allerta/:', async (req,res) =>{
-    const allerta= await updateAllerta(req.body.descrizione,req.body.inizio,req.body.fine)
-    res.json(allerta)
-})
-
+app.use("/allerta",routerAllerta)
+app.use("/lettura",routerLettura)
 /*
 
 {

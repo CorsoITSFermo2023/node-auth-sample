@@ -42,7 +42,7 @@ const deleteAllerta = (where) => smartDelete(table, where);
 const insertAllerta = (params) => smartInsert(table, params);
 
 module.exports = {
-  insertAllerta,
+  insertAllerta:insertAllerta,
   listAllerte,
   getAllerta,
   updateAllerta,
