@@ -13,18 +13,7 @@ router.get("/list", async (req,res) => {
     const lista = await listLetture({1:1});
     res.json(lista);
 })
-router.put('/:idLettura', async (req,res) =>{
-    const lettura= await updateLettura(req.body, { id: req.params.idLettura })
-    res.json(lettura)
-})
-router.post('/', async (req,res) =>{
-    const lettura= await insertLettura(req.body)
-    res.json(lettura)
-})
-router.delete('/:idLettura', async (req,res) =>{
-const lettura = await deleteLettura({ id: req.params.idLettura });
-  res.json("tippoooo lettura eliminata cazzo ne so")
-})
+
 //kkn - farebbe comodo una lista per provincia
 router.get("/list/:prov", async (req,res) => {
     const lista = await listLetture({provincia:req.params.prov});
