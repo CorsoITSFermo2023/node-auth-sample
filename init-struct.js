@@ -25,4 +25,8 @@ async function initStruct() {
   )`);
 }
 
-initStruct()
+
+module.exports = {
+  initStruct
+}
+
