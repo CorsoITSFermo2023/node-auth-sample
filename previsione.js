@@ -13,6 +13,9 @@ router.post('/', async (req, res) => {
 //get previsione
 router.get('/:idPrevisione', async (req, res) => {
     const prev = await getPrevisione({ id: req.params.idPrevisione });
+    if(!prev) {
+        res.status(404);
+    }
     res.json(prev)
 });
 
