@@ -1,29 +1,15 @@
 const { run } = require("./db");
 
 async function initStruct() {
-  await run(`CREATE TABLE IF NOT EXISTS previsione (
+  await run(`CREATE TABLE IF NOT EXISTS utente (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    previsione STRING,
-    temperatura REAL,
-    umidita REAL,
-    uv REAL,
-    data STRING,
-    fascia_oraria STRING,
-    provincia STRING
+    username STRING,
+    password STRING
   )`);
-  await run(`CREATE TABLE IF NOT EXISTS allerta (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    descrizione STRING,
-    data_inizio STRING,
-    data_fine STRING
-  )`);
-  await run(`CREATE TABLE IF NOT EXISTS lettura (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    previsione STRING,
-    dataora STRING,
-    provincia STRING
+  await run(`CREATE TABLE IF NOT EXISTS token (
+    token STRING PRIMARY KEY,
+    id_user INTEGER,
+    exp STRING
   )`);
 }
-
-
 initStruct()
