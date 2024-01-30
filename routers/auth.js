@@ -15,7 +15,9 @@ router.post('/register', async (req, res) => {
     username.length < 4 ||
     password.length < 4
   ) {
-    res.status(400).send("Bad request")
+    res.status(400).json({
+      "message": "Invalid username or password"
+    })
     return;
   }
   const id = await smartInsert("utente", {
