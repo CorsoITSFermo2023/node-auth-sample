@@ -1,0 +1,15 @@
+meta {
+  name: WhoAmI
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{host}}/whoami
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 70bac7189c6c8e6ce7cc868ea815798140d37eb9
+}

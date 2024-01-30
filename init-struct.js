@@ -12,4 +12,4 @@ async function initStruct() {
     exp STRING
   )`);
 }
-initStruct()
+module.exports = initStruct
